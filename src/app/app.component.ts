@@ -71,7 +71,8 @@ export class AppComponent implements OnInit {
     uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
     this.selectedFile.imageName = this.selectedFile.name;
 
-    this.http.post('http://localhost:8006/employee/upload', uploadData, { observe: 'response' })
+    this.http.post('https://employeeapp4.herokuapp.com/employee/upload', uploadData, { observe: 'response' })
+    //this.http.post('http://localhost:8888/employee/upload', uploadData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
           this.employeeService.addEmployee(addForm.value).subscribe(
